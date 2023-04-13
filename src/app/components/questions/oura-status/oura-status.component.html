@@ -1,0 +1,49 @@
+<div class="question-wrapper">
+    <p class="question-title">
+        {{title}}
+    </p>
+    <div class="detail-box">
+        <div *ngIf="loadingStatus" class="col-xs-12">
+              <span>
+                <i class="fa-pull-left fa-4x fas fa-spinner fa-spin"></i>
+                Please wait! Loading ring status...
+              </span>
+        </div>
+
+        <div *ngIf="!loadingStatus && ringConnected && recentUpload" class="col-xs-12">
+              <span>
+                <i class="text-success fa-pull-left fa-4x far fa-smile"></i>
+                  We've received your data from Oura. <br/> Thank you!
+              </span>
+        </div>
+
+        <div *ngIf="!loadingStatus && ringConnected && !recentUpload && recentLaunch" class="col-xs-12">
+              <span>
+                <i class="text-warning fa-pull-left fa-4x fas fa-hourglass-half"></i>
+                  Thanks for opening Oura app. Please check back after we synchronize with Oura. <br/>
+              </span>
+        </div>
+
+        <div *ngIf="!loadingStatus && ringConnected && !recentUpload && !recentLaunch" class="col-xs-12">
+              <span>
+                <i class="text-warning fa-pull-left fa-4x far fa-frown"></i>
+                  We have not received your last couple of nights sleep data from Oura. Please open Oura app and
+                  <b> wait to sync </b> your data. Also, charge your ring if needed. <br/>
+                  <i>Synchronization may take one day to show up in this page.</i> <br/>
+              </span>
+            <a (click)="openOuraApp()" target="_blank" class="btn btn-primary pull-right">
+                Open Oura App
+            </a>
+        </div>
+
+        <div *ngIf="!loadingStatus && !ringConnected" class="col-xs-12">
+              <span>
+                <i class="text-danger fa-pull-left fa-4x fas fa-times"></i>
+                  Your Oura ring is not connected. Please connect your ring by pressing this button. <br/>
+              </span>
+                <a href="{{url}}" target="_blank" class="btn btn-primary pull-right">
+                Connect your Oura ring now
+                </a>
+        </div>
+    </div>
+</div>

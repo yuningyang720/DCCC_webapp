@@ -1,0 +1,228 @@
+<!-- <div class="question-wrapper">
+    <p class="question-title">
+        {{title}}
+    </p>
+    <div class="detail-box">
+        <div *ngIf="loadingSamsung" class="col-xs-12">
+              <span>
+                <i class="fa-pull-left fa-4x fas fa-spinner fa-spin"></i>
+                Please wait! Loading watch data...
+              </span>
+        </div>
+        <div *ngIf="!loadingSamsung" class="detail-box col-xs-12">
+              <span *ngIf="neverConnected">
+                <i class="text-danger fa-pull-left fa-4x fas fa-times"></i>
+                We've never received any of your watch data. Please follow the instructions and if it
+                does not work please contact your study coordinator
+              </span>
+            <span *ngIf="!neverConnected && !recentUpload" >
+                <i class="text-success fa-pull-left fa-4x far fa-smile"></i>
+                We've received your watch data {{timeElapsedFormatted}} ago. <br/> Thank you!
+              </span>
+            <span *ngIf="!neverConnected && recentUpload">
+                <i class="text-warning fa-pull-left fa-4x far fa-frown"></i>
+                It has been {{timeElapsedFormatted}} that we did not received your watch data. Please follow these steps to
+                troubleshoot your connection.
+              </span>
+              <span *ngIf="!neverConnected && lateUpload">
+                <i class="text-warning fa-pull-left fa-4x far fa-frown"></i>
+                It has been {{timeElapsedFormatted}} that we did not received your watch data. Please follow these steps to
+                reset the watch.
+              </span>
+        </div>
+        <div *ngIf="neverConnected || recentUpload" class="container-fluid detail-box">
+            <div *ngIf="stepArr.length == 0">
+                <div class="row">
+                    <div class="col-5 my-auto">
+                        <img src="assets/img/animations/step0.gif">
+                    </div>
+                    <div class="col-7 pull-right">
+                        <div class="samsung-desc">
+                            <b>Step 0. </b> <br/>
+                            Turn on your wifi first.<br/>
+                            drag down from the top of your home screen and tap on the wifi logo if it's off to turn it on.
+                        </div>
+                        <button class="btn btn-primary btn-block" (click)="wifiStatus('turnOn');" >
+                            Next
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="stepArr.length != 0" >
+                <div class="row">
+                    <div class="col-5 my-auto">
+                        <img src="assets/img/animations/{{stepArr[stepIndex][2]}}.gif">
+                    </div>
+                    <div class="col-7 pull-right">
+                        <div class="samsung-desc">
+                            <div *ngIf="stepArr.length == 7">
+                                <div *ngIf="stepIndex >= 1 && stepIndex <= 4">
+                                    <b>Step {{stepArr[stepIndex][0]}} (turn on WIFI). </b> <br>{{stepArr[stepIndex][1]}}
+                                </div>
+                                <div *ngIf="stepIndex < 1 || stepIndex > 4">
+                                    <b>Step {{stepArr[stepIndex][0]}}. </b> <br>{{stepArr[stepIndex][1]}}
+                                </div>
+                            </div>
+                            <div *ngIf="stepArr.length != 7">
+                                <b>Step {{stepArr[stepIndex][0]}}. </b> <br>{{stepArr[stepIndex][1]}}
+                            </div>
+                            <div *ngIf="stepIndex == 0" class="mt-4">
+                                <button class="btn btn-block btn-secondary btn-warning"
+                                        (click)="wifiStatus('noSend');next(stepIndex);">No SEND button</button>
+                            </div>
+                        </div>
+                        <div class="btn-block btn-group" role="group" *ngIf="stepArr.length !== stepIndex+1">
+                            <button type="button" class="btn btn-info " (click)="back(stepIndex);" >Previous</button>
+                            <button type="button" class="btn btn-primary next" (click)="next(stepIndex);" >Next</button>
+                        </div>
+                        <div class="btn-block btn-group" role="group" *ngIf="stepArr.length === stepIndex+1">
+                            <button type="button" class="btn btn-info" (click)="back(stepIndex);" >Previous</button>
+                            <button type="button" class="btn btn-primary next" (click)="loadSamsungLastUpload()" >
+                                Refresh
+                            </button>
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+        <div *ngIf="neverConnected || lateUpload" class="container-fluid detail-box">
+            <div *ngIf="stepArr.length == 0">
+                <div class="row">
+                    <div class="col-5 my-auto">
+                        <img src="assets/img/animations/step0.gif">
+                    </div>
+                    <div class="col-7 pull-right">
+                        <div class="samsung-desc">
+                            <b>Step 0. </b> <br/>
+                            Turn on your wifi first.<br/>
+                            drag down from the top of your home screen and tap on the wifi logo if it's off to turn it on.
+                        </div>
+                        <button class="btn btn-primary btn-block" (click)="wifiStatus('turnOn');" >
+                            Next
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="stepArr.length != 0" >
+                <div class="row">
+                    <div class="col-5 my-auto">
+                        <img src="assets/img/animations/{{stepArr[stepIndex][2]}}.gif">
+                    </div>
+                    <div class="col-7 pull-right">
+                        <div class="samsung-desc">
+                            <div *ngIf="stepArr.length == 7">
+                                <div *ngIf="stepIndex >= 1 && stepIndex <= 4">
+                                    <b>Step {{stepArr[stepIndex][0]}} (turn on WIFI). </b> <br>{{stepArr[stepIndex][1]}}
+                                </div>
+                                <div *ngIf="stepIndex < 1 || stepIndex > 4">
+                                    <b>Step {{stepArr[stepIndex][0]}}. </b> <br>{{stepArr[stepIndex][1]}}
+                                </div>
+                            </div>
+                            <div *ngIf="stepArr.length != 7">
+                                <b>Step {{stepArr[stepIndex][0]}}. </b> <br>{{stepArr[stepIndex][1]}}
+                            </div>
+                            <div *ngIf="stepIndex == 0" class="mt-4">
+                                <button class="btn btn-block btn-secondary btn-warning"
+                                        (click)="wifiStatus('noSend');next(stepIndex);">No SEND button</button>
+                            </div>
+                        </div>
+                        <div class="btn-block btn-group" role="group" *ngIf="stepArr.length !== stepIndex+1">
+                            <button type="button" class="btn btn-info " (click)="back(stepIndex);" >Previous</button>
+                            <button type="button" class="btn btn-primary next" (click)="next(stepIndex);" >Next</button>
+                        </div>
+                        <div class="btn-block btn-group" role="group" *ngIf="stepArr.length === stepIndex+1">
+                            <button type="button" class="btn btn-info" (click)="back(stepIndex);" >Previous</button>
+                            <button type="button" class="btn btn-primary next" (click)="loadSamsungLastUpload()" >
+                                Refresh
+                            </button>
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div class="question-wrapper">
+    <p class="question-title">
+        {{title}}
+    </p>
+    <div class="detail-box">
+        <div *ngIf="loadingSamsung" class="col-xs-12">
+              <span>
+                <i class="fa-pull-left fa-4x fas fa-spinner fa-spin"></i>
+                Please wait! Loading watch data...
+              </span>
+        </div>
+        <div *ngIf="!loadingSamsung" class="detail-box col-xs-12">
+              <span *ngIf="neverConnected">
+                <i class="text-danger fa-pull-left fa-4x fas fa-times"></i>
+                We've never received any of your watch data. Please follow the instructions and if it
+                does not work please contact your study coordinator
+              </span>
+            <span *ngIf="!neverConnected && recentUpload" >
+                <i class="text-success fa-pull-left fa-4x far fa-smile"></i>
+                We've received your watch data {{timeElapsedFormatted}} ago. <br/> Thank you!
+              </span>
+            <span *ngIf="!neverConnected && !recentUpload">
+                <i class="text-warning fa-pull-left fa-4x far fa-frown"></i>
+                It has been {{timeElapsedFormatted}} that we did not received your watch data. Please follow these steps to
+                upload them.
+              </span>
+        </div>
+        <div *ngIf="neverConnected || !recentUpload" class="container-fluid detail-box">
+            <div *ngIf="stepArr.length == 0">
+                <div class="row">
+                    <div class="col-5 my-auto">
+                        <img src="assets/img/animations/step0.gif">
+                    </div>
+                    <div class="col-7 pull-right">
+                        <div class="samsung-desc">
+                            <b>Step 0. </b> <br/>
+                            Turn on your wifi first.<br/>
+                            drag down from the top of your home screen and tap on the wifi logo if it's off to turn it on.
+                        </div>
+                        <button class="btn btn-primary btn-block" (click)="wifiStatus('turnOn');" >
+                            Next
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="stepArr.length != 0" >
+                <div class="row">
+                    <div class="col-5 my-auto">
+                        <img src="assets/img/animations/{{stepArr[stepIndex][2]}}.gif">
+                    </div>
+                    <div class="col-7 pull-right">
+                        <div class="samsung-desc">
+                            <div *ngIf="stepArr.length == 7">
+                                <div *ngIf="stepIndex >= 1 && stepIndex <= 4">
+                                    <b>Step {{stepArr[stepIndex][0]}} (turn on WIFI). </b> <br>{{stepArr[stepIndex][1]}}
+                                </div>
+                                <div *ngIf="stepIndex < 1 || stepIndex > 4">
+                                    <b>Step {{stepArr[stepIndex][0]}}. </b> <br>{{stepArr[stepIndex][1]}}
+                                </div>
+                            </div>
+                            <div *ngIf="stepArr.length != 7">
+                                <b>Step {{stepArr[stepIndex][0]}}. </b> <br>{{stepArr[stepIndex][1]}}
+                            </div>
+                            <div *ngIf="stepIndex == 0" class="mt-4">
+                                <button class="btn btn-block btn-secondary btn-warning"
+                                        (click)="wifiStatus('noSend');next(stepIndex);">No SEND button</button>
+                            </div>
+                        </div>
+                        <div class="btn-block btn-group" role="group" *ngIf="stepArr.length !== stepIndex+1">
+                            <button type="button" class="btn btn-info " (click)="back(stepIndex);" >Previous</button>
+                            <button type="button" class="btn btn-primary next" (click)="next(stepIndex);" >Next</button>
+                        </div>
+                        <div class="btn-block btn-group" role="group" *ngIf="stepArr.length === stepIndex+1">
+                            <button type="button" class="btn btn-info" (click)="back(stepIndex);" >Previous</button>
+                            <button type="button" class="btn btn-primary next" (click)="loadSamsungLastUpload()" >
+                                Refresh
+                            </button>
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

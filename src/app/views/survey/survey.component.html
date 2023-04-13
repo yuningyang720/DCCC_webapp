@@ -1,0 +1,155 @@
+<div class="wrapper">
+    <div class="main">
+        <div class="section section-first">
+            <ng-template #content let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title" id="modal-basic-title">Incomplete Submission</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <label>You previously filled out parts of this survey at
+                          {{edit_time.toUTCString().slice(0, -3)}}. Would you like to continue?</label>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" (click)="modal.close('New')">Create New Submission</button>
+
+                    <button type="button" class="btn btn-primary" (click)="modal.close('Continue')">Yes</button>
+                </div>
+              </ng-template>
+              <pre>{{closeResult}}</pre>
+            <div class="container">
+                <form #questionnaireForm='ngForm' class="form">
+                    <div *ngFor="let question of questionsSeries[seriesIndex].questions" [ngSwitch]="question.type" >
+
+                        <app-title-question *ngSwitchCase="'title'"
+                                            [soundUrl]="question.sound_url"
+                                            [player]="mainPlayer"
+                                            [bullets]="question.bullet_points"
+                                            [imageUrl]="question.image_url"
+                                            [title]="textWrap(question.title)"></app-title-question>
+
+                        <app-scale-question *ngSwitchCase="'scale'"
+                                            [indicator]="question.indicator" [title]="question.title"
+                                            [tooltip]="question.tooltip" [(value)]="question.value"
+                                            [max]="question.max" [min]="question.min"
+                                            (valueChange)="saveLastChange(question)"
+                                            [required]="question.required"></app-scale-question>
+
+                        <app-indicator-question *ngSwitchCase="'indicator'"
+                                                [indicator]="question.indicator"></app-indicator-question>
+
+                        <app-image-scale-question *ngSwitchCase="'image_scale'"
+                                                  [title]="question.title" [indicator]="question.indicator"
+                                                  [(value)]="question.value" [min]="question.min"
+                                                  [max]="question.max"
+                                                  (valueChange)="saveLastChange(question)"
+                                                  [required]="question.required"></app-image-scale-question>
+
+                        <app-unite-emotion-assessment *ngSwitchCase="'emotion-assessment-emoji'"
+                                                      [title]="question.title" [secondTitle]="question.second_title"
+                                                      [required]="question.required" [key]="question.key"
+                                                      [(value)]="question.value" [thirdTitle]="question.third_title"
+                                                      (valueChange)="saveLastChange(question)">
+                        </app-unite-emotion-assessment>
+
+                        <app-check-question *ngSwitchCase="'check'"
+                                            [title]="question.title" [options]="question.options"
+                                            [other_bar]="question.other_bar" (valueChange)="saveLastChange(question)"
+                                            [required]="question.required" [(value)]="question.value" 
+                                             [(checkboxValidObject)] = "checkboxValidObject"
+                                            [hideLabel]="question.hide_label" [alignment]="question.alignment"
+                                            [key]="question.key"></app-check-question>
+
+                        <app-datetime *ngSwitchCase="'datetime'"
+                                      [title]="question.title" [key]="question.key"
+                                      [range]="question.range" [category]="question.category" [required]="question.required"
+                                      [(value)]="question.value" [min]="question.min" [max]="question.max"></app-datetime>
+
+                        <app-text-question *ngSwitchCase="'text'"
+                                           [title]="textWrap(question.title)" [(value)]="question.value"
+                                           (valueChange)="saveLastChange(question)"
+                                           [required]="question.required" [key]="question.key">
+                        </app-text-question>
+
+                        <app-number *ngSwitchCase="'number'"
+                                           [title]="textWrap(question.title)" [(value)]="question.value"
+                                           (valueChange)="saveLastChange(question)"
+                                           [required]="question.required" [key]="question.key">
+                        </app-number>
+
+                        <app-select-question *ngSwitchCase="'select'"
+                                           [title]="textWrap(question.title)" [(value)]="question.value"
+                                           (valueChange)="saveLastChange(question)"
+                                           [required]="question.required"></app-select-question>
+
+                        <div *ngSwitchCase="'randomized'">
+                            <app-title-question
+                                    [soundUrl]="question.choices[getRandom(0, question.choices.length)].sound_url"
+                                    [player]="mainPlayer"
+                                    [title]="textWrap(question.choices[getRandom(0, question.choices.length)].title)">
+                            </app-title-question>
+                        </div>
+
+                        <app-radio-question *ngSwitchCase="'radio'"
+                                            [title]="question.title" [options]="question.options"
+                                            [key]="question.key" [(value)]="question.value"
+                                            [required]="question.required" [other_bar]="question.other_bar"
+                                            (valueChange)="saveLastChange(question)"
+                                            [alignment]="question.alignment"
+                                            [hideLabel]="question.hide_label" ></app-radio-question>
+
+
+                        <app-audio-question *ngSwitchCase="'audio_capture'" [(value)]="question.value"
+                                            [title]="textWrap(question.title)">
+                        </app-audio-question>
+
+                        <app-big-text-question *ngSwitchCase="'big_text'"
+                                               [soundUrl]="question.sound_url"
+                                               [player]="mainPlayer"
+                                               [title]="textWrap(question.title)" [(value)]="question.value"
+                                               (valueChange)="saveLastChange(question)"
+                                               [required]="question.required"></app-big-text-question>
+
+                        <app-upload-photo-question *ngSwitchCase="'image_capture'" [(value)]="question.value"
+                                                   [key]="question.key" [title]="question.title"
+                                                   [required]="question.required"></app-upload-photo-question>
+
+                        <app-breathing-exercise-question *ngSwitchCase="'breathing_exercise'"
+                                                         [title]="question.title"></app-breathing-exercise-question>
+
+                        <app-oura-status *ngSwitchCase="'oura_status'" [title]="question.title"></app-oura-status>
+
+                        <app-samsung-status-updated *ngSwitchCase="'samsung_status'" [title]="question.title">
+                        </app-samsung-status-updated>
+
+                        <app-audio-player *ngSwitchCase="'audio_player'" [title]="question.title"
+                                          [player]="mainPlayer" [src]="question.sound_url"></app-audio-player>
+
+                        <app-exercise *ngSwitchCase="'exercise'" [title]="question.title"
+                                      [repeat]="question.repetition" [src]="question.image_url"
+                                      [timer]="question.timer" [player]="utilityPlayer" [set]="question.set"></app-exercise>
+                    </div>
+
+                    <div>
+                        <button *ngIf="whereToBack()>=0" class="btn btn-secondary float-left"
+                                (click)="back()">previous</button>
+                        <button [disabled]="checkCheckboxValidObject() || !questionnaireForm.form.valid" class="btn btn-primary float-right"
+                                (click)="submit(questionnaireForm.form)">{{getSubmitButtonText()}}</button>
+                    </div>
+                    <!-- <div *ngIf="questionsSeries[seriesIndex].questions.type.indexOf('check') !== -1">
+                        <button [disabled]="!questionnaireForm.form.valid || !hcheckboxValid" class="btn btn-primary pull-right"
+                                (click)="submit(questionnaireForm.form)">{{getSubmitButtonText()}}</button>
+                    </div> -->
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>

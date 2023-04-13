@@ -1,0 +1,63 @@
+<div class="wrapper">
+    <div class="parallax">
+        <div class="container h-100 text-white">
+            <div class="row h-100 justify-content-center align-items-center">
+                <form class="col-12" name="profile">
+                    <div class="photo-container">
+                        <img src="assets/img/user.png" alt="">
+                    </div>
+                    <div class="parallax-curtain">
+                        <div *ngFor="let field of profileKeys">
+                            <div *ngFor="let item of field.fields" [ngSwitch]="item.type" class="mb-5 text-left">
+                                <app-title-question *ngSwitchCase="'title'" [title]="item.title"></app-title-question>
+
+                                <app-scale-question *ngSwitchCase="'scale'" #scaleValue [indicator]="item.indicator"
+                                    [title]="item.title" [tooltip]="item.tooltip" [(value)]="profile[item.key]"
+                                    [max]="item.max" [min]="item.min"
+                                    (valueChange)="saveLastChange(item.key, scaleValue.value, item.upload)"
+                                    [required]="item.required">
+                                </app-scale-question>
+
+                                <app-indicator-question *ngSwitchCase="'indicator'" [indicator]="item.indicator">
+                                </app-indicator-question>
+
+                                <app-text-question *ngSwitchCase="'text'" [title]="item.title" [key]="item.key"
+                                                   [(value)]="profile[item.key]" [edit]="item.edit"
+                                ></app-text-question>
+                                    
+                                <app-check-question
+                                        *ngSwitchCase="'check'" [title]="item.title" [key]="item.key"
+                                        [options]="item.options" [other_bar]="item.other_bar" [required]="item.required"
+                                        [(value)]="profile[item.key]"></app-check-question>
+
+                                <app-radio-question *ngSwitchCase="'radio'" #radioInput [title]="item.title"
+                                    [options]="item.options" [key]="item.key" [(value)]="profile[item.key]"
+                                    [required]="item.required" [other_bar]="item.other_bar"
+                                ></app-radio-question>
+                                <!-- <div *ngIf="item.type === 'text'" class="mb-5 text-left">
+                                            #Added labels to profile keys
+                                                <label >{{item.title}}</label>
+                                                <input [(ngModel)]="profile[item.title]" type="text" class="form-control">
+                                        </div> -->
+                            </div>
+                            <!-- <div *ngIf="key.field_type === 'select'" class="form-group">
+                                        <label> {{key.name}}: </label>
+                                        <div class="col-sm-10">
+                                            <select [(ngModel)]="profile[key.name]" class="form-control">
+                                                <option *ngFor="let opt of key.options" [value]="opt">{{opt}}</option>
+                                            </select>
+                                        </div>
+                                    </div> -->
+                        </div>
+                        <div class="float-right">
+                            <button class="btn btn-primary" (click)="save()">Save</button>
+
+                        </div>
+
+                
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

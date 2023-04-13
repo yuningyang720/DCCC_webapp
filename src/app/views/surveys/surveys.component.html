@@ -1,0 +1,32 @@
+<div class="wrapper">
+    <div class="main">
+        <div class="section section-first">
+            <div class="container">
+                <div class="info_box" *ngIf="isLoaded && prompts.length <= 0">
+                    <div class="info_logo">
+                        <i class="fa fa-exclamation"></i>
+                    </div>
+                    <div class="info_description">
+                        There is no surveys for you to show!
+                    </div>
+                </div>
+                <div *ngFor="let prompt of prompts; last as isLast">
+                    <h3>{{prompt.name}}</h3>
+                    <div *ngIf="prompt.description"><span>{{prompt.description}}</span> <br/></div>
+                    <div class="detail-box">
+                        <div class="col-xs-12">
+                            <button (click)="takeSurvey(prompt)" *ngIf="isAvailable(prompt)"
+                                    class="btn btn-primary float-left">
+                                Take it now
+                            </button>
+                            <div class="prompt-desciption" *ngIf="!isAvailable(prompt)" >
+                                {{getWaitDescription(prompt)}}
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

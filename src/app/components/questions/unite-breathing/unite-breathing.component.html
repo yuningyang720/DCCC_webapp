@@ -1,0 +1,25 @@
+<div class="question-wrapper">
+    <p>
+        {{title}}
+    </p>
+    <div class="breathing-container" ngClass="{{breathing?'active':''}}">
+        <div (click)="startExercise()" class="exercise">
+            <div class="outer-circle"></div>
+            <div class="inner-circle"></div>
+            <div class="start-button"><span class="fa fa-5x fa-play"></span></div>
+        </div>
+        <div class="exercise-text">
+            <div class="in">
+                Breathe in
+            </div>
+            <div class="out">
+                Breathe out
+            </div>
+            <div class="inst">
+                Click on above circle to start
+            </div>
+
+        </div>
+
+    </div>
+</div>

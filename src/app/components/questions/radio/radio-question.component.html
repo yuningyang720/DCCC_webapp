@@ -1,0 +1,23 @@
+<div class="question-wrapper col-12">
+    <p class="question-title" [ngClass]="{'small': hideLabel}">
+        {{title}}
+    </p>
+</div>
+
+<div [ngClass]="{'d-flex flex-row flex-wrap': inline, 'justify-content-between': indicator}">
+    <div *ngFor="let option of options" class="form-check form-check-radio">
+        <label class="form-check-label">
+            <input name="{{name}}" [(ngModel)]="value" (change)="onChange()"
+                [required]="required" class="form-check-input justify-content-center" type="radio"
+                [value]="option" #radio="ngModel">
+            {{hideLabel ? '&nbsp;' : option}}
+            <span class="form-check-sign"></span>
+        </label>
+    </div>
+</div>
+
+
+<div *ngIf="other_bar" class="form-group">
+    <input name="{{name}}" class="form-control" [disabled]="!value['Other']" type="text" placeholder="if other ">
+</div>
+

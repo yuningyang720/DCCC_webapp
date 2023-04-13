@@ -1,0 +1,8 @@
+<div class="question-wrapper">
+    <p class="question-title">
+        <i *ngIf="soundUrl" (click)="playAudio()" class="fas fa-volume-up"></i> {{title}}
+    </p>
+    <textarea class="form-control" name="name" rows="4" cols="80"
+              [(ngModel)]="value" (change)="onChange()"
+              [required]="required" ></textarea>
+</div>

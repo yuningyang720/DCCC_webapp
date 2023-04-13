@@ -1,0 +1,23 @@
+<div class="question-wrapper">
+    <p class="question-title">
+        {{title}}
+    </p>
+    <div class="form-group">
+        <!-- <label for="file">Choose File</label> -->
+        <input *ngIf="required; else notRequired" type="file" [(ngModel)]="value"
+               id="file"
+               accept="image/*"
+               capture="camera"
+               name="{{name}}"
+               requirePhotoUpload
+               (change)="handleFileInput($event.target.files)" [required]="required">
+        <ng-template #notRequired>
+            <input type="file" [(ngModel)]="value"
+                   id="file2"
+                   accept="image/*"
+                   name="{{name}}"
+                   (change)="handleFileInput($event.target.files)">
+        </ng-template>
+
+    </div>
+</div>

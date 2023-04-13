@@ -1,0 +1,16 @@
+<div class="question-wrapper">
+    <p class="question-title">
+        {{title}}
+    </p>
+
+    <div *ngIf="range; else noRange">
+        <input name="{{name}}" [(ngModel)]="dtRange" (ngModelChange)="onChange()" [min]="minDatetime" [max]="maxDatetime"
+               [owlDateTimeTrigger]="dt1" [selectMode]="'range'" [owlDateTime]="dt1" [placeholder]="placeholder" [required]="required">
+    </div>
+    <ng-template #noRange>
+        <input name="{{name}}" [(ngModel)]="dt" (ngModelChange)="onChange()" [min]="minDatetime" [max]="maxDatetime"
+               [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" [placeholder]="placeholder" [required]="required">
+    </ng-template>
+    <owl-date-time  [pickerType]="pickerType" #dt1></owl-date-time>
+</div>
+

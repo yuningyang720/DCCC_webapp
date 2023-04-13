@@ -1,0 +1,13 @@
+<div class="question-wrapper">
+    <p class="question-title">
+        {{title}}
+    </p>
+    <div *ngIf="indicator.length>=2" class="img-indicator-container">
+        <div *ngFor="let indicatorItem of indicator" class="img-indicator-item">
+            <img [src]="indicatorItem" />
+        </div>
+    </div>
+    <nouislider class="slider slider-primary" [min]="min" [step]="1" [(ngModel)]="value"
+                [max]="max" (change)="onChange()" [required]="required"
+                [tooltips]="false"></nouislider>
+</div>

@@ -1,0 +1,35 @@
+.form-control {
+  color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .navbar-nav {
+      margin-left: 150px;
+  }
+
+  .navbar-header {
+      padding-left: 150px;
+  }
+}
+
+
+.parallax {
+  /* The image used */
+  background: linear-gradient(rgba(19, 0, 0, 0.8),rgba(117, 46, 46, 0.9)), url("assets/img/bg7.jpg");
+
+  /* Set a specific height */
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.container { 
+  max-width: 100% !important;
+  background-color: transparent !important;
+  width: 100% !important;
+  padding: 1% 20% !important;
+}

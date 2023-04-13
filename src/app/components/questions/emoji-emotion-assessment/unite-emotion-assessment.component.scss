@@ -1,0 +1,38 @@
+@import "~assets/sass/now-ui-kit/_variables";
+
+
+.emoji-row-container {
+  text-align: center;
+  margin-bottom: 10px;
+
+  .emo-button {
+    line-height: 95px;
+    width: 95px;
+    padding: 5px;
+    color: $black-hr;
+    font-size: 64px;
+    background-color: $light-gray;
+
+
+    &.small-icon {
+      font-size: 40px;
+    }
+
+    &.large-icon {
+      font-size: 80px;
+    }
+
+    span.fa {
+      font-size: 60px;
+    }
+  }
+
+  .emo-button:focus {
+    outline: none;
+  }
+
+  .emo-button.select {
+    color: $black-color;
+    background-color: $dark-gray;
+  }
+}

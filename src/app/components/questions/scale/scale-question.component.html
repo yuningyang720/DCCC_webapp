@@ -1,0 +1,10 @@
+<div class="question-wrapper">
+    <p class="question-title">
+        {{title}}
+    </p>
+    <div *ngIf="indicator && indicator.length>=2" class="indicators d-flex justify-content-between">
+        <div *ngFor="let indicatorItem of indicator" class="d-inline-flex mw-15 mr-0 p-0 text-center">{{indicatorItem}}</div>
+    </div>
+    <nouislider class="slider slider-primary" [min]="min" [max]="max" [step]="1" [(ngModel)]="value"
+                [tooltips]="tooltip" (change)="onChange()" [required]="required"></nouislider>
+</div>

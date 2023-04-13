@@ -1,0 +1,15 @@
+<ng-template #rt let-r="result" let-t="term">
+    <img [src]="r['photo']['thumb']" class="mr-1" style="width: 35px">
+    <ngb-highlight [result]="r.food_name" [term]="t"></ngb-highlight>
+</ng-template>
+
+<div class="question-wrapper select-question">
+    <p class="question-title">
+        {{title}}
+    </p>
+    <div class="form-group">
+        <input id="typeahead-template" type="text" class="form-control" [(ngModel)]="value" [ngbTypeahead]="search"
+               [resultTemplate]="rt" [inputFormatter]="formatter" (change)="onChange()" />
+    </div>
+</div>
+

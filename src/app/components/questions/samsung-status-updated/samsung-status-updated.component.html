@@ -1,0 +1,131 @@
+<div class="question-wrapper">
+    <p class="question-title">
+        {{title}}
+    </p>
+    <div class="detail-box">
+        <div *ngIf="loadingSamsung" class="col-xs-12">
+              <span>
+                <i class="fa-pull-left fa-4x fas fa-spinner fa-spin"></i>
+                Please wait! Loading watch data...
+              </span>
+        </div>
+        <div *ngIf="!loadingSamsung" class="detail-box col-xs-12">
+            <span *ngIf="neverConnected">
+                <i class="text-danger fa-pull-left fa-4x fas fa-times"></i>
+                We've never received any of your watch data. Please follow the instructions and if it
+                does not work please contact your study coordinator
+            </span>
+            <span *ngIf="!neverConnected && !recentUpload && !lateUpload" >
+                <i class="text-success fa-pull-left fa-4x far fa-smile"></i>
+                We've received your watch data {{timeElapsedFormatted}} ago. <br/> Thank you!
+            </span>
+            <span *ngIf="!neverConnected && recentUpload">
+                <i class="text-warning fa-pull-left fa-4x far fa-frown"></i>
+                It has been {{timeElapsedFormatted}} that we did not received your watch data. Please follow these steps to
+                troubleshoot your connection.
+            </span>
+            <span *ngIf="!neverConnected && lateUpload">
+                <i class="text-warning fa-pull-left fa-4x far fa-frown"></i>
+                It has been {{timeElapsedFormatted}} that we did not received your watch data. Please follow these steps to
+                reset the watch.
+            </span>
+        </div>
+        <div *ngIf="!neverConnected && recentUpload" class="container-fluid detail-box">
+            <div *ngIf="stepArr.length == 0">
+                <div class="row">
+                    <div class="col-5 my-auto">
+                        <img src="assets/img/samsung-status/eighthourstep1.png">
+                    </div>
+                    <div class="col-7 pull-right">
+                        <div class="samsung-desc">
+                            <b>Step 0. </b> <br/>
+                            Open galaxy Wearable app on your phone.<br/>
+                        </div>
+                        <button class="btn btn-primary btn-block" (click)="eightHourSteps()" >
+                            Next
+                        </button>
+                        <button class="btn btn-info btn-block" (click)="openSamsungApp()" >
+                            Open Samsung App
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="stepArr.length != 0" >
+                <div class="row">
+                    <div class="col-5 my-auto">
+                        <img src="assets/img/samsung-status/{{stepArr[stepIndex][2]}}">
+                    </div>
+                    <div class="col-7 pull-right">
+                        <div class="samsung-desc">
+                            <div>
+                                <b>Step {{stepArr[stepIndex][0]}}. </b> <br>{{stepArr[stepIndex][1]}}
+                            </div>    
+                        </div>
+                        <div class="btn-block btn-group" role="group" *ngIf="stepArr.length !== stepIndex+1">
+                            <button type="button" class="btn btn-info " (click)="back(stepIndex);" >Previous</button>
+                            <button type="button" class="btn btn-primary next" (click)="next(stepIndex);" >Next</button>
+                        </div>
+                        <!-- Change these buttons!? -->
+                        <div class="btn-block btn-group" role="group" *ngIf="stepArr.length === stepIndex+1">
+                            <button type="button" class="btn btn-info" (click)="back(stepIndex);" >Previous</button>
+                            <button type="button" class="btn btn-primary next" (click)="loadSamsungLastUpload()" >
+                                Refresh
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <!-- twenty four hours update -->
+        <div *ngIf="neverConnected || lateUpload" class="container-fluid detail-box">
+            <div *ngIf="stepArr.length == 0">
+                <div class="row">
+                    <div class="col-5 my-auto">
+                        <img src="assets/img/samsung-status/twentyfourhourstep1.png">
+                    </div>
+                    <div class="col-7 pull-right">
+                        
+                        <button class="btn btn-primary btn-block" (click)="eightHourSteps();" >
+                            Check Connection
+                        </button>
+                        <button class="btn btn-primary btn-block" (click)="twentyFourHourSteps();" >
+                            Reset the Watch
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="stepArr.length != 0" >
+                <div class="row">
+                    <div class="col-5 my-auto">
+                        <img src="assets/img/samsung-status/{{stepArr[stepIndex][2]}}">
+                    </div>
+                    <div class="col-7 pull-right">
+                        <div class="samsung-desc">
+                            <div>
+                                <b>Step {{stepArr[stepIndex][0]}}. </b> <br>{{stepArr[stepIndex][1]}}
+                            </div>    
+                        </div>
+                        <div class="btn-block btn-group" role="group" *ngIf="stepArr.length !== stepIndex+1">
+                            <button type="button" class="btn btn-info " (click)="back(stepIndex);" >Previous</button>
+                            <button type="button" class="btn btn-primary next" (click)="next(stepIndex);" >Next</button>
+                        </div>
+                        
+                        <!-- Change these buttons!? -->
+                        <div class="btn-block btn-group" role="group" *ngIf="stepArr.length === stepIndex+1">
+                            <button type="button" class="btn btn-info" (click)="back(stepIndex);" >Previous</button>
+                            <button type="button" class="btn btn-primary next" (click)="loadSamsungLastUpload()" >
+                                Refresh
+                            </button>
+                        </div>
+<!--                        <div class="btn-block btn-group" role="group" *ngIf="stepArr[0][0] === 0">-->
+<!--                            <button class="btn btn-primary btn-block" (click)="openSamsungApp()" >-->
+<!--                                Open Samsung App-->
+<!--                            </button>-->
+<!--                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,190 @@
+[
+  {
+    "questions": [
+      {"type": "title", "title": "How are you feeling right now?"},
+      {"type": "indicator", "indicator": ["Not at all", "Extremely"]},
+      {"type": "scale", "indicator": [], "key": "Sad", "title": "Sad", "value": 50},
+      {"type": "scale", "indicator": [], "key": "Grateful", "title": "Grateful", "value": 50},
+      {"type": "scale", "indicator": [], "key": "Lonely", "title": "Lonely", "value": 50},
+      {"type": "scale", "indicator": [], "key": "Happy", "title": "Happy", "value": 50},
+      {"type": "scale", "indicator": [], "key": "Afraid", "title": "Afraid", "value": 50},
+      {"type": "scale", "indicator": [], "key": "Hopeful", "title": "Hopeful", "value": 50},
+      {"type": "scale", "indicator": [], "key": "Upset", "title": "Upset", "value": 50},
+      {"type": "scale", "indicator": [], "key": "Joyful", "title": "Joyful", "value": 50},
+      {"type": "scale", "indicator": [], "key": "Irritable", "title": "Irritable", "value": 50},
+      {"type": "scale", "indicator": [], "key": "Worried", "title": "Worried", "value": 50},
+      {"type": "scale", "indicator": [], "key": "Proud", "title": "Proud", "value": 50},
+      {"type": "scale", "indicator": [], "key": "Excited", "title": "Excited", "value": 50},
+      {"type": "scale", "indicator": [], "key": "Guilty", "title": "Guilty", "value": 50},
+      {"type": "scale", "indicator": [], "key": "Strong", "title": "Strong", "value": 50},
+      {"type": "scale", "indicator": [], "key": "Frustrated", "title": "Frustrated", "value": 50},
+      {"type": "scale", "indicator": [], "key": "Loved", "title": "Loved", "value": 50},
+      {"type": "scale", "indicator": [], "key": "Angry", "title": "Angry", "value": 50},
+      {"type": "scale", "indicator": [], "key": "Inspired", "title": "Inspired", "value": 50},
+      {"type": "scale", "indicator": [], "key": "Content", "title": "Content", "value": 50},
+      {"type": "scale", "indicator": [], "key": "Ashamed", "title": "Ashamed", "value": 50}
+    ]
+  },
+  {
+    "questions": [
+      {"type": "title", "title": "Overall, How do you feel?"},
+      {"type": "scale", "indicator": ["Alert", "Drowsy"], "key":"overall_alert", "title": "", "value": 50},
+      {"type": "scale", "indicator": ["Unhappy", "Happy"], "key":"overall_happiness", "title": "", "value": 50},
+      {"type": "scale", "indicator": ["Safe", "Unsafe"], "key":"overall_safety", "title": "", "value": 50}
+    ]
+  },
+  {
+    "questions": [
+      {
+        "type": "check",
+        "title": "What were you doing just before you started the survey? (Select all that apply)",
+        "options": [
+          "Work",
+          "Child care",
+          "Play or Leisure",
+          "Rest",
+          "Physical activity",
+          "Social activity",
+          "Housework",
+          "Self-care (e.g., showering, eating)",
+          "Community program",
+          "Attending a religious service",
+          "In transit",
+          "Other"],
+        "other_bar": true,
+        "key": "what_doing",
+        "value": {}
+      },
+      {
+        "type": "radio",
+        "title": "Why were you doing this activity?",
+        "key": "why_doing",
+        "options": [
+          "I had to",
+          "I wanted to",
+          "I both had to and wanted to",
+          "There was nothing else to do"]
+      }
+    ]
+  },
+  {
+    "questions": [
+      {
+        "type": "check",
+        "title": "Who are you with? (Select all that apply)",
+        "options": [
+          "No one, I’m alone",
+          "Partner (spouse/significant other)",
+          "My child (in study)",
+          "My other children (not in study)",
+          "Other family member(s)",
+          "Friend(s)",
+          "Acquaintance(s)",
+          "Co-worker(s)",
+          "Stranger(s)",
+          "Other"],
+        "other_bar": true,
+        "key": "who_with",
+        "value": {}
+      }
+    ]
+  },
+  {
+    "condition": [{"key": "who_with", "value": ["Partner (spouse/significant other)", "My child (in study)",
+      "My other children (not in study)", "Other family member(s)", "Friend(s)", "Acquaintance(s)", "Co-worker(s)",
+      "Stranger(s)", "Other"]}],
+    "questions": [
+      {
+        "type": "check",
+        "title": "Of these people, were you interacting with anyone (e.g., shared activity, conversation)? (Select all that apply)",
+        "options": [
+          "No one. Others were around me, but I'm not interacting with them.",
+          "Partner (spouse/significant other)",
+          "My child (in study)",
+          "My other children (not in study)",
+          "Other family member(s)",
+          "Friend(s)",
+          "Acquaintance(s)",
+          "Co-worker(s)",
+          "Stranger(s)",
+          "Other"],
+        "other_bar": true,
+        "key": "who_interact",
+        "value": {}
+      }
+    ]
+  },
+  {
+    "condition": [{"key": "who_with", "value": ["Partner (spouse/significant other)", "My child (in study)",
+      "My other children (not in study)", "Other family member(s)", "Friend(s)", "Acquaintance(s)", "Co-worker(s)",
+      "Stranger(s)", "Other"]}],
+    "questions": [
+      {"type": "title", "title": "Thinking about the people who you are with: "},
+      {"type": "scale", "indicator": ["Not at all", "Extremely"], "key":"trust_level",
+        "title": "How much can you trust these people?", "value": 50},
+      {"type": "scale", "indicator": ["Not at all", "Extremely"], "key":"connected_with",
+        "title": "How much do you feel connected to these people?", "value": 50}
+    ]
+  },
+  {
+    "condition": [{"key": "who_with", "value": ["My child (in study)"]}],
+    "questions": [
+      {"type": "title", "title": "Describe how you feel about your child right now?"},
+      {"type": "scale", "indicator": ["Close to", "Distant from"], "key":"close_to", "title": "", "value": 50},
+      {"type": "scale", "indicator": ["Friendly toward", "Angry with"], "key":"friendly", "title": "", "value": 50},
+      {"type": "scale", "indicator": ["Worried about", "Not worried at all"], "key":"worried", "title": "", "value": 50},
+      {"type": "scale", "indicator": ["In control of", "Controlled by"], "key":"in_control", "title": "", "value": 50}
+    ]
+  },
+  {
+    "condition": [{"key": "who_with", "value": ["My child (in study)"]}],
+    "questions": [
+      {"type": "title", "title": "How would you describe your child's mood?"},
+      {"type": "scale", "indicator": ["Alert", "Drowsy"], "key":"child_alert", "title": "", "value": 50},
+      {"type": "scale", "indicator": ["Happy", "Unhappy"], "key":"child_happy", "title": "", "value": 50}
+    ]
+  },
+  {
+    "questions": [
+      {
+        "type": "radio",
+        "title": "Since your last survey, have you had any tension or disagreement with someone you know?",
+        "options": ["Yes", "No"],
+        "key": "last_survey_tension"
+      }, {
+        "title": "If so, with whom? (check all that apply)",
+        "type": "check",
+        "options": [
+          "Partner (spouse/significant other)",
+          "My child (in study)",
+          "My other children (not in study)",
+          "Other family member(s)",
+          "Friend(s)",
+          "Acquaintance(s)",
+          "Co-worker(s)",
+          "Stranger(s)",
+          "Other"
+        ],
+        "other_bar": "true",
+        "key": "tension_with_whom",
+        "value": {}
+      }, {
+        "type": "radio",
+        "title": "Since your last survey, have there been any significant positive events that may have an influence on your current mood or emotional state?",
+        "options": ["Yes", "No"],
+        "key": "last_survey_positive"
+      }, {
+        "type": "text",
+        "title": "In a few words, briefly describe the positive event:",
+        "key": "positive_event"
+      }, {
+        "type": "radio",
+        "title": "Since your last survey, have there been any significant negative events that may have an influence on your current mood or emotional state?",
+        "options": ["Yes", "No"],
+        "key": "last_survey_negative"
+      }, {
+        "type": "text",
+        "title": "In a few words, briefly describe the negative event:",
+        "key": "negative_event"
+      }
+    ]}]

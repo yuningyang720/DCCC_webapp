@@ -1,0 +1,15 @@
+
+.idea/
+node_modules/
+*.iml
+/www/
+/platforms/
+/plugins/
+/.gradle/
+/release_key.jks
+/encrypted_private_key_path
+/build.json
+/release_key_old.jks
+.DS_Store
+/graphics/
+/src/assets/img/icons/

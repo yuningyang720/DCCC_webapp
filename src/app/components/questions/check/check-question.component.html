@@ -1,0 +1,44 @@
+<div class="question-wrapper">
+    <p class="question-title">
+        {{title}}
+    </p>
+    <div [ngClass]="{'d-flex flex-row flex-wrap': inline, 'justify-content-between': indicator}">
+        <div *ngFor="let option of options" class="form-check" >
+            <label class="form-check-label boxLabel">
+                <input name="{{name}}" [(ngModel)]="value[option]" (change)="onChange()"
+                    class="form-check-input" type="checkbox" value="option" >
+                {{hideLabel ? '' : option}}
+                <span class="form-check-sign"></span>
+            </label>
+        </div>
+    </div>
+    <div *ngIf="other_bar" class="form-group">
+        <input name="{{name}}" class="form-control" #otherInput [disabled]="!value['Other']" type="text"
+               placeholder="If other, please briefly describe" (change)="otherValue(otherInput.value)">
+    </div>
+</div>
+
+
+<!-- <ng-container [formGroup]="myFormGroup">
+    <div class="question-wrapper">
+        <p class="question-title">
+            {{title}}
+        </p>
+        <div [class]="inline && 'd-flex flex-row flex-wrap'">
+            <div *ngFor="let option of options" class="form-check form-group" formGroupName="myCheckboxGroup">
+                <label class="form-check-label boxLabel">
+                    <input name="{{name}}" [(ngModel)]="value[option]" (change)="onChange()" required="required" 
+                        class="form-check-input" type="checkbox" value="option" formControlName={{option}} >
+                    {{hideLabel ? '' : option}}
+                    <span class="form-check-sign"></span>
+                </label>
+            </div>
+        </div>
+        <div *ngIf="other_bar" class="form-group">
+            <input name="{{name}}" class="form-control" #otherInput [disabled]="!value['Other']" type="text"
+                    placeholder="If other, please briefly describe" (change)="otherValue(otherInput.value)">
+        </div>
+        <div style="color: red" *ngIf="required && myFormGroup.controls['myCheckboxGroup'].errors">At least one checkbox is required to check</div>
+    </div>
+</ng-container>
+ -->

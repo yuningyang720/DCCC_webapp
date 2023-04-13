@@ -1,0 +1,30 @@
+<div class="wrapper">
+    <div class="main">
+        <div class="section section-first">
+            <div class="container">
+                <h4 class="title">
+                    Settings
+                </h4>
+                <div class="question-wrapper">
+                    <p class="question-title">
+                        Please select a time that works best for you to participate in a brief reflection task. We recommend choosing a time during which you will be alone, and when it will be quiet enough for you to focus on your thoughts and feelings. Most people choose times between 7:00 PM and 11:00 PM. You will receive a notification at your selected time every day.
+                    </p>
+                    <nouislider class="slider slider-primary" [min]="0" [max]="23" [step]="1"
+                                [(ngModel)]="setting.preferredTime" [tooltips]="true" [format]="formatter"></nouislider>
+                </div>
+                <div class="question-wrapper">
+                    <p class="question-title">
+                        Part of this study involves
+                        checking in with you throughout the day to see how you are feeling. Please move
+                        the slider below to select the portion of the day during which you would like to
+                        receive these notifications. Keep in mind that the questions we ask are brief, and
+                        should not take more than a minute to complete.
+                    </p>
+                    <nouislider class="slider slider-primary" [min]="0" [max]="23" [step]="1" [connect]="true"
+                                [(ngModel)]="setting.goodTimes" [tooltips]="true" [format]="formatter"></nouislider>
+                </div>
+                <button class="btn btn-primary pull-right" (click)="save()"> save </button>
+            </div>
+        </div>
+    </div>
+</div>

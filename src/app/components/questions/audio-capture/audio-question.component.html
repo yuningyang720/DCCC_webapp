@@ -1,0 +1,16 @@
+ <div class="question-wrapper">
+    <p class="question-title">
+        {{title}}
+    </p>
+    <div class="recorder-container">
+        <div class="col-xs-12 media-button">
+            <a class="record-button" ngClass="{{isRecording()?'active':''}}"
+               (click)="toggleRecording()" >
+                                        <span class="fa fa-5x" ngClass="{{isRecording()?'fa-microphone-slash':'fa-microphone'}}">
+                                        </span></a>
+        </div>
+        <audio #audio class="audio-player">
+            Your device does not support audio playback
+        </audio>
+    </div>
+ </div>

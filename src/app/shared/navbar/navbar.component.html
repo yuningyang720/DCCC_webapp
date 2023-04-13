@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg bg-primary fixed-top" color-on-scroll="500">
+    <div (click)="sidebarClose()" class="navbar-underlay">
+
+    </div>
+    <div class="container">
+        <div class="navbar-translate">
+            <a class="navbar-brand">
+                {{appName}}
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+                    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"
+                    (click)="sidebarToggle()">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" data-nav-image="assets/img/blurred-image-1.jpg" data-color="orange">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item" [ngClass]="{'active': getRoute() == '/home'}">
+                    <a class="nav-link" [routerLink]="['/home']">
+                        <i class="fa fa-home"></i>
+                        <p>Home</p>
+                    </a>
+                </li>
+                <li *ngFor="let category of categories" class="nav-item"
+                    [ngClass]="{'active': getRoute() == '/surveys;category='+category.name}">
+                    <a class="nav-link" [routerLink]="['/surveys', {category: category.name}]">
+                        <i class="fa" [ngClass]="category.logo"></i>
+                        <p>{{category.name}}</p>
+                    </a>
+                </li>
+                <li class="nav-item" [ngClass]="{'active': getRoute() == '/sensors'}">
+                    <a class="nav-link" [routerLink]="['/sensors']">
+                        <i class="fa fas fa-sync-alt"></i>
+                        <p>Sync Devices</p>
+                    </a>
+                </li>
+                <li class="nav-item" [ngClass]="{'active': getRoute() == '/resources'}">
+                    <a class="nav-link" [routerLink]="['/resources']">
+                        <i class="fa fas fa-hand-holding-heart"></i>
+                        <p>Resources</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="logout()" >
+                        <i class="now-ui-icons arrows-1_share-66"></i>
+                        <p>Logout</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,10 @@
+<div class="question-wrapper">
+    <p class="question-title">
+        {{title}}
+    </p>
+    <div class="form-group">
+        <input class="form-control" [(ngModel)]="value" (change)="onChange()" [required]="required" type="number"
+               name="{{name}}" [disabled]="!edit" >
+
+    </div>
+</div>

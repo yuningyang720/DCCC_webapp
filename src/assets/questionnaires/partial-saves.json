@@ -1,0 +1,455 @@
+
+
+[
+
+    {
+  
+      "questions": [
+  
+        {
+  
+          "indicator": [
+  
+            "https://thrive.healthscitech.org/cdn/SAM/explode/1-explode.png",
+  
+            "https://thrive.healthscitech.org/cdn/SAM/explode/2-explode.png",
+  
+            "https://thrive.healthscitech.org/cdn/SAM/explode/3-explode.png",
+  
+            "https://thrive.healthscitech.org/cdn/SAM/explode/4-explode.png",
+  
+            "https://thrive.healthscitech.org/cdn/SAM/explode/5-explode.png"
+  
+          ],
+  
+          "key": "pre_SAM_explode",
+  
+          "max": 100,
+  
+          "title": "Using the following images, please select the choice that best describes how you feel right now.",
+  
+          "type": "image_scale",
+  
+          "value": 50
+  
+        },
+  
+        {
+  
+          "indicator": [
+  
+            "https://thrive.healthscitech.org/cdn/SAM/happy/1-happy.png",
+  
+            "https://thrive.healthscitech.org/cdn/SAM/happy/2-happy.png",
+  
+            "https://thrive.healthscitech.org/cdn/SAM/happy/3-happy.png",
+  
+            "https://thrive.healthscitech.org/cdn/SAM/happy/4-happy.png",
+  
+            "https://thrive.healthscitech.org/cdn/SAM/happy/5-happy.png"
+  
+          ],
+  
+          "key": "pre_SAM_happy",
+  
+          "max": 100,
+  
+          "title": "Using the following images, please select the choice that best describes how you feel right now.",
+  
+          "type": "image_scale",
+  
+          "value": 50
+  
+        }
+  
+      ]
+  
+    },
+  
+    {
+  
+      "questions": [
+  
+        {
+  
+          "indicator": [
+  
+            "https://thrive.healthscitech.org/cdn/SAM/relationship/1-rel.png",
+  
+            "https://thrive.healthscitech.org/cdn/SAM/relationship/2-rel.png",
+  
+            "https://thrive.healthscitech.org/cdn/SAM/relationship/3-rel.png",
+  
+            "https://thrive.healthscitech.org/cdn/SAM/relationship/4-rel.png",
+  
+            "https://thrive.healthscitech.org/cdn/SAM/relationship/5-rel.png",
+  
+            "https://thrive.healthscitech.org/cdn/SAM/relationship/6-rel.png",
+  
+            "https://thrive.healthscitech.org/cdn/SAM/relationship/7-rel.png"
+  
+          ],
+  
+          "key": "pre_SAM_rel",
+  
+          "max": 100,
+  
+          "title": "Please select the picture below that best describes your relationship with your child.",
+  
+          "type": "image_scale",
+  
+          "value": 50
+  
+        }
+  
+      ]
+  
+    },
+  
+    {
+  
+      "questions": [
+  
+        {
+  
+          "title": "Indicate to what extent your child feels this way right now, that is, at the present moment.  Use the following scale to record your answers.",
+  
+          "type": "title"
+  
+        },
+  
+        {
+  
+          "indicator": [
+  
+            "Not at all",
+  
+            "Extremely"
+  
+          ],
+  
+          "type": "indicator"
+  
+        },
+  
+        {
+  
+          "indicator": [],
+  
+          "key": "pre_happy",
+  
+          "title": "Happy",
+  
+          "type": "scale",
+  
+          "value": 50
+  
+        },
+  
+        {
+  
+          "indicator": [],
+  
+          "key": "pre_distress",
+  
+          "title": "Distress",
+  
+          "type": "scale",
+  
+          "value": 50
+  
+        },
+  
+        {
+  
+          "indicator": [],
+  
+          "key": "pre_scared",
+  
+          "title": "Scared",
+  
+          "type": "scale",
+  
+          "value": 50
+  
+        },
+  
+        {
+  
+          "indicator": [],
+  
+          "key": "pre_alert",
+  
+          "title": "Alert",
+  
+          "type": "scale",
+  
+          "value": 50
+  
+        },
+  
+        {
+  
+          "indicator": [],
+  
+          "key": "pre_interested",
+  
+          "title": "Interested",
+  
+          "type": "scale",
+  
+          "value": 50
+  
+        },
+  
+        {
+  
+          "indicator": [],
+  
+          "key": "pre_irritable",
+  
+          "title": "Irritable",
+  
+          "type": "scale",
+  
+          "value": 50
+  
+        },
+  
+        {
+  
+          "indicator": [],
+  
+          "key": "pre_engaged",
+  
+          "title": "Engaged",
+  
+          "type": "scale",
+  
+          "value": 50
+  
+        },
+  
+        {
+  
+          "indicator": [],
+  
+          "key": "pre_hungry",
+  
+          "title": "Hungry",
+  
+          "type": "scale",
+  
+          "value": 50
+  
+        },
+  
+        {
+  
+          "indicator": [],
+  
+          "key": "pre_calm",
+  
+          "title": "Calm",
+  
+          "type": "scale",
+  
+          "value": 50
+  
+        },
+  
+        {
+  
+          "indicator": [],
+  
+          "key": "pre_angry",
+  
+          "title": "Angry",
+  
+          "type": "scale",
+  
+          "value": 50
+  
+        }
+  
+      ]
+  
+    },
+  
+    {
+  
+      "questions": [
+  
+        {
+  
+          "sound_url": "https://thrive.healthscitech.org/cdn/Reflection/mindfulness_breathing.mp3",
+  
+          "title": "Now we are going to do a short mindfulness exercise to help you feel relaxed. For this exercise, I want you to begin by sitting comfortably with your hands in your lap. You can keep your eyes closed or open, but try not to focus on anything but your breathing. If you notice that your mind is drifting away from your breathing, gently bring it back. If you find yourself having judgmental thoughts, notice them and then let them go.    Now just inhale, count to 6 in your head, and then slowly exhale. As you breathe in, feel the air in your nose, feel your lungs expand, feel the change in your diaphragm. As you breathe out, let your thoughts go as well.",
+  
+          "type": "title"
+  
+        },
+  
+        {
+  
+          "key": "mindfulness_breathing",
+  
+          "required": true,
+  
+          "time": 30,
+  
+          "type": "breathing_exercise"
+  
+        }
+  
+      ]
+  
+    },
+  
+    {
+  
+      "questions": [
+  
+        {
+  
+          "choices": [
+  
+            {
+  
+              "sound_url": "https://thrive.healthscitech.org/cdn/Control_Prompts/Control 1.mp3",
+  
+              "title": "Did you know that babies look away from people and stimuli to regulate their bodies and emotions?"
+  
+            },
+  
+            {
+  
+              "sound_url": "https://thrive.healthscitech.org/cdn/Control_Prompts/Control 2.mp3",
+  
+              "title": "Talking, singing, and reading to your baby all help to develop their brains and minds!"
+  
+            },
+  
+            {
+  
+              "sound_url": "https://thrive.healthscitech.org/cdn/Control_Prompts/Control 3.mp3",
+  
+              "title": "Your baby has a specific cry that you can recognize just three days after birth. Researchers have found that a new mom can pick out her baby’s individual cry even if there are other crying babies in the room."
+  
+            },
+  
+            {
+  
+              "sound_url": "https://thrive.healthscitech.org/cdn/Control_Prompts/Control 4.mp3",
+  
+              "title": "A baby can smile instinctively. For years, experts thought a baby smiled because she was just copying the actions of those around her, but even blind babies can smile."
+  
+            },
+  
+            {
+  
+              "sound_url": "https://thrive.healthscitech.org/cdn/Control_Prompts/Control 5.mp3",
+  
+              "title": "Your baby is connected to your emotions and your feelings -- even before they’re born. Researchers had pregnant women listen to different types of music via headphones and then tracked their baby's movements with an ultra sound. If the mom was listening to music that she enjoyed, the fetus moved around more. While many babies move around when music is playing, the headphones meant that the babies were responding to their mother's emotions and not the music itself."
+  
+            },
+  
+            {
+  
+              "sound_url": "https://thrive.healthscitech.org/cdn/Control_Prompts/Control 6.mp3",
+  
+              "title": "Newborns can hear as well as an adult. They startle at just about anything, not because it’s softer or louder, but because it’s new. Newborns can recognize their mother’s voice from just one syllable."
+  
+            },
+  
+            {
+  
+              "sound_url": "https://thrive.healthscitech.org/cdn/Control_Prompts/Control 7.mp3",
+  
+              "title": "A baby has around 10,000 taste buds, compared to older adults who have about 5,000. Babies have taste buds not just on the tongue but also on the sides, back, and roof of their mouths. This means that babies have a stronger sense of taste, which is why they might prefer simpler foods where adults like strong, salty or spicy foods."
+  
+            },
+  
+            {
+  
+              "sound_url": "https://thrive.healthscitech.org/cdn/Control_Prompts/Control 8.mp3",
+  
+              "title": "Babies adopt their mother’s accent in their cries.  Researchers found that babies pick up their mother’s native tongue in the last three months of pregnancy and  reflect the characteristics of their mother tongue in the pattern of their cries after birth. You can tell the difference between German, French and English babies just by their cries and gurgles."
+  
+            },
+  
+            {
+  
+              "sound_url": "https://thrive.healthscitech.org/cdn/Control_Prompts/Control 9.mp3",
+  
+              "title": "Before babies can speak, they can communicate physically by waving, clapping and pointing. Researchers have found a link between this physical communication and future verbal communication abilities."
+  
+            },
+  
+            {
+  
+              "sound_url": "https://thrive.healthscitech.org/cdn/Control_Prompts/Control 10.mp3",
+  
+              "title": "Newborns are born with swimming abilities. They naturally hold their breath under water and splash about with their arms and legs."
+  
+            },
+  
+            {
+  
+              "sound_url": "https://thrive.healthscitech.org/cdn/Control_Prompts/Control 11.mp3",
+  
+              "title": "A newborn’s stomach is the size of a hazelnut. That is why babies need to feed so often, they can’t hold much milk in their stomachs at once."
+  
+            },
+  
+            {
+  
+              "sound_url": "https://thrive.healthscitech.org/cdn/Control_Prompts/Control 12.mp3",
+  
+              "title": "Did you know that babbling is often the first sign of language development?"
+  
+            },
+  
+            {
+  
+              "sound_url": "https://thrive.healthscitech.org/cdn/Control_Prompts/Control 13.mp3",
+  
+              "title": "Babies are soothed and comforted by sound that remind them of the noises they heard in their mom’s womb. They enjoy sounds like the vacuum cleaner, the washing machine, or simple white noise."
+  
+            },
+  
+            {
+  
+              "sound_url": "https://thrive.healthscitech.org/cdn/Control_Prompts/Control 14.mp3",
+  
+              "title": "Babies are born with skills required to adapt to a wide range of conditions, which allows them to survive all over the world"
+  
+            },
+  
+            {
+  
+              "sound_url": "https://thrive.healthscitech.org/cdn/Control_Prompts/Control 15.mp3",
+  
+              "title": "Did you know social interaction increases the speed and accuracy of learning in all ages, including babies?"
+  
+            },
+  
+            {
+  
+              "sound_url": "https://thrive.healthscitech.org/cdn/Control_Prompts/Control 16.mp3",
+  
+              "title": "Playing is the most effective way for children to learn life skills and find out what they like and dislike."
+  
+            },
+  
+            {
+  
+              "sound_url": "https://thrive.healthscitech.org/cdn/Control_Prompts/Control 17.mp3",
+  
+              "title": "Newborn infants are only alert for around three minutes every hour."
+  
+            },
+  
+            {
+  
+              "sound_url": "https://thrive.healthscitech.org/cdn/Control_Prompts...

@@ -1,0 +1,15 @@
+<div class="question-wrapper">
+    <p>
+        {{title}}
+    </p>
+    <div class="audio-player-container">
+        <div class="exercise mx-auto">
+            <a (click)="play()" class="w-100 mx-auto">
+                <span class="w-100 fa fa-5x" ngClass="{{isPlaying()?'fa-pause':'fa-play'}}"></span>
+            </a>
+        </div>
+
+        <nouislider class="slider slider-primary" *ngIf="playerReady" [(ngModel)]="curser" (change)="seekAudio($event)" [min]="0"
+                    [max]="player.duration"></nouislider>
+    </div>
+</div>

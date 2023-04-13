@@ -1,0 +1,291 @@
+@import "now-ui-kit";
+@import "datetime";
+@import "../Unite-Icons/style";
+
+body{
+  padding-top: constant(safe-area-inset-top);
+  padding-top: env(safe-area-inset-top);
+}
+
+.navbar{
+  padding-top: constant(safe-area-inset-top);
+  padding-top: env(safe-area-inset-top);
+}
+
+.center {
+  margin: auto;
+  width: auto !important;
+}
+
+.spinner {
+  position: fixed;
+  padding: 0px;
+  right: auto!important;
+  bottom: 0;
+  left: 0 !important;
+  height: auto !important;
+  width: auto !important;
+  top: auto !important;
+  z-index: 9998;
+  background: none !important;
+  opacity: 0.6;
+  transition: opacity 0.3s linear;
+}
+
+#loading-spinner-text {
+  display: none;
+}
+
+.lds-roller div:after {
+  background: $primary-color !important;
+}
+
+
+.simple-notification {
+  &.error {
+    background: $danger-color-alert !important;
+  }
+
+  .sn-title {
+    font-size: 1em !important;
+  }
+
+  .icon {
+    padding: 13px !important;
+  }
+
+}
+
+.simple-notification-wrapper {
+  width: 100% !important;
+}
+
+.nav-item.nav-item-bottom {
+  bottom: 30px;
+  width: 100%;
+  position: absolute;
+}
+
+.simple-notification-wrapper{
+  z-index: 2000 !important;
+}
+
+.page-header.page-header-small {
+  height: 100vh;
+  max-height: 100vh;
+}
+
+.question-wrapper {
+  .question-title {
+    font-size: 1.2em;
+    font-weight: 500;
+    margin-top: 1rem;
+    margin-bottom: .3rem;
+  }
+
+  .question-title.small {
+    font-size: 0.9em;
+  }
+
+  .indicators {
+    overflow: auto;
+    font-size: 0.8em;
+    font-weight: 300;
+  }
+}
+
+.form-check {
+  margin-top: 0 !important;
+  margin-bottom: 0.65rem;
+}
+
+.noUi-horizontal .noUi-handle {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  margin-left: -15px;
+  margin-top: -15px;
+}
+
+.font-larger {
+  font-size: 1.5em;
+}
+
+.profile-page .photo-container {
+  margin: 20px auto;
+}
+
+.form-check-radio input[type="radio"]:checked + .form-check-sign::after {
+  width: 16px;
+  height: 16px;
+  background-color: #ffffff;
+  top: 5px;
+  left: 5px;
+}
+
+.info_box {
+  padding: 18px 16px;
+  width: 100%;
+  height: 100px;
+  background-color: #eee!important;
+  border-radius: 4px;
+  border: 1px transparent;
+
+  .info_logo {
+    background-color: $warning-color;
+    color: #fff;
+    padding: 0 15.5px;
+    text-align: center;
+    height: 60px;
+    width: 60px;
+    font-weight: 400;
+    margin-right: 19px;
+    border-radius: 30px;
+    position: absolute;
+
+    i {
+      display: block;
+      font-size: 20px;
+      line-height: 60px;
+    }
+  }
+
+  .info_description {
+    margin-left: 70px;
+    margin-top: 10px;
+    font-weight: 600;
+  }
+}
+
+
+.navbar-underlay{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1031;
+  display: none;
+  opacity: 0;
+  background-color: rgb(149, 112, 65);
+  transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+}
+
+.nav-open .navbar-underlay{
+  display: block;
+  opacity: 0.7;
+}
+
+.cdk-overlay-container {
+  z-index: 1031;
+}
+
+.gallery-container{
+
+  max-height: 52vh;
+
+  .lightbox-img {
+    width: 32%;
+  }
+}
+
+div.slide div {
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+}
+
+.big-section-wrap {
+  padding: 3px;
+}
+
+.icon-wrap {
+  padding: 15px 20.5px;
+  text-align: center;
+  height: 115px;
+  width: 115px;
+  font-weight: 400;
+  color: #9a9a9a;
+  border-radius: 100%;
+  background-color: hsla(0,0%,87%,.3);
+  margin: auto;
+}
+
+.icon-wrap.active {
+  box-shadow: 0 5px 35px 0 rgba(0,0,0,.3);
+  background-color: $primary-color;
+  color: #fff;
+}
+
+.text-wrap {
+  text-align: center;
+  margin-top: 15px;
+
+  .main {
+    font-size: 1.5em;
+    color: $black-color;
+  }
+
+  .sub {
+    color: $dark-gray;
+
+  }
+}
+
+.cal-month-view .cal-day-cell {
+  min-height: 50px;
+}
+
+.cal-month-view .cal-cell-top {
+  min-height: 50px;
+}
+
+.section {
+  padding: 20px 0;
+}
+
+.section-first {
+  padding-top: 15vh;
+}
+
+.cal-month-view .cal-day-badge{
+  display: none;
+}
+
+.form-control {
+  color: #2c2c2c;
+}
+
+.img-indicator-container {
+  display: table;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.img-indicator-item {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.img-indicator-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.detail-box{
+  overflow: auto;
+  margin-top: 10px;
+}
+
+.select-question .dropdown-menu {
+  width: 100%;
+}
+
+.form-check-radio input[type="radio"]:checked + .form-check-sign::after {
+  background-color: #555;
+  width: 12px;
+  height: 12px;
+  top: 7px;
+  left: 7px;
+}

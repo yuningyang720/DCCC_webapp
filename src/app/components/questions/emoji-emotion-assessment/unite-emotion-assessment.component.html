@@ -1,0 +1,115 @@
+<div class="question-wrapper">
+    <p class="question-title">
+        {{title}}
+    </p>
+    <div class="row emoji-row-container">
+        <div class="col-4">
+            <button [class.select]="firstEmo=='frown'" (click)="selectFirstEmo('frown')" class="emo-button rounded">
+                <span class="fa fa-frown"></span>
+            </button>
+        </div>
+        <div class="col-4">
+            <button [class.select]="firstEmo=='meh'" (click)="selectFirstEmo('meh')" class="emo-button rounded">
+                <span class="fa fa-meh"></span>
+            </button>
+        </div>
+        <div class="col-4">
+            <button [class.select]="firstEmo=='smile'" (click)="selectFirstEmo('smile')" class="emo-button rounded">
+                <span class="fa fa-smile"></span>
+            </button>
+        </div>
+    </div>
+
+    <p *ngIf="firstEmo=='frown' || firstEmo=='smile'" class="question-title">
+        {{secondTitle}}
+    </p>
+
+    <div *ngIf="firstEmo=='smile'" class="row emoji-row-container">
+        <div class="col-4">
+            <button [class.select]="secondEmo=='happy1'" (click)="selectSecondEmo('happy1')" class="emo-button rounded small-icon">
+                <span class="unite-icon-Positive1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span> <br/>
+
+            </button>
+        </div>
+        <div class="col-4">
+            <button [class.select]="secondEmo=='happy2'" (click)="selectSecondEmo('happy2')" class="emo-button rounded">
+                <span class="unite-icon-Positive2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span><br/>
+
+            </button>
+        </div>
+        <div class="col-4">
+            <button [class.select]="secondEmo=='happy3'" (click)="selectSecondEmo('happy3')" class="emo-button rounded large-icon">
+                <span class="unite-icon-Positive3"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span><br/>
+            </button>
+        </div>
+    </div>
+
+    <div *ngIf="firstEmo=='frown'" class="row emoji-row-container">
+        <div class="col-6">
+            <button [class.select]="secondEmo=='mad'" (click)="selectSecondEmo('mad')" class="emo-button rounded">
+                <span class="unite-icon-Mad1">
+                    <span class="path1"></span>
+                    <span class="path2"></span>
+                    <span class="path3"></span>
+                    <span class="path4"></span>
+                    <span class="path5"></span>
+                    <span class="path6"></span>
+                </span>
+            </button>
+        </div>
+        <div class="col-6">
+            <button [class.select]="secondEmo=='sad'" (click)="selectSecondEmo('sad')" class="emo-button rounded">
+                <span class="unite-icon-Sad1">
+                    <span class="path1"></span>
+                    <span class="path2"></span>
+                    <span class="path3"></span>
+                    <span class="path4"></span>
+                </span>
+            </button>
+        </div>
+    </div>
+
+    <p *ngIf="firstEmo=='frown' && (secondEmo=='sad' || secondEmo=='mad')" class="question-title">
+        {{thirdTitle}}
+    </p>
+
+    <div *ngIf="firstEmo=='frown' && secondEmo=='sad'" class="row emoji-row-container">
+        <div class="col-4">
+            <button [class.select]="thirdEmo=='sad1'" (click)="selectThirdEmo('sad1')" class="emo-button rounded small-icon">
+                <span class="unite-icon-Sad1">
+                    <span class="path1"></span>
+                    <span class="path2"></span>
+                    <span class="path3"></span>
+                    <span class="path4"></span>
+                </span>
+            </button>
+        </div>
+        <div class="col-4">
+            <button [class.select]="thirdEmo=='sad2'" (click)="selectThirdEmo('sad2')" class="emo-button rounded">
+                <span class="unite-icon-Sad2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
+            </button>
+        </div>
+        <div class="col-4">
+            <button [class.select]="thirdEmo=='sad3'" (click)="selectThirdEmo('sad3')" class="emo-button rounded large-icon">
+                <span class="unite-icon-Sad3"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span></span>
+            </button>
+        </div>
+    </div>
+
+    <div *ngIf="firstEmo=='frown' && secondEmo=='mad'" class="row emoji-row-container">
+        <div class="col-4">
+            <button [class.select]="thirdEmo=='mad1'" (click)="selectThirdEmo('mad1')" class="emo-button rounded small-icon">
+                <span class="unite-icon-Mad1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></span>
+            </button>
+        </div>
+        <div class="col-4">
+            <button [class.select]="thirdEmo=='mad2'" (click)="selectThirdEmo('mad2')" class="emo-button rounded">
+                <span class="unite-icon-Mad2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></span>            </button>
+        </div>
+        <div class="col-4">
+            <button [class.select]="thirdEmo=='mad3'" (click)="selectThirdEmo('mad3')" class="emo-button rounded large-icon">
+                <span class="unite-icon-Mad3"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></span>            </button>
+        </div>
+    </div>
+
+</div>

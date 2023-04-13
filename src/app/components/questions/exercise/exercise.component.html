@@ -1,0 +1,33 @@
+<div class="question-wrapper">
+    <div class="exercise-container">
+        <div class="exercise mx-auto">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="w-100">
+                        <div class="col-7 title float-left">
+                            <p> {{title}} </p>
+                            <p *ngIf="repeat">
+                                <span>  {{set}} sets for {{repeat}} reps </span>
+                            </p>
+                            <div *ngIf="timer">
+                                <countdown #cd [config]="counterConfig" (event)="counterEvent($event)" ></countdown>
+                                <div>
+                                    <button *ngIf="!counting" class="btn btn-primary" (click)="startCountDown()" >
+                                        start </button>
+                                    <button *ngIf="counting" class="btn btn-info" (click)="restartCountDown()">
+                                        restart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="src" class="col-5 image-container float-right">
+                            <img class="fixed-ratio-resize" src="{{src}}" alt="exercise image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+    </div>
+</div>

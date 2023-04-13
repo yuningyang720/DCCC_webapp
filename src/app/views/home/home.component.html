@@ -1,0 +1,26 @@
+<div class="wrapper">
+    <div class="main">
+        <div class="section section-first">
+            <div class="container">
+                <div class="home-container row justify-content-center ">
+                    <div class="col-6" *ngFor='let category of categories'>
+                        <div [routerLink]="['/surveys', {category: category.name}]" class="big-section-wrap ">
+                            <div class="icon-wrap" [ngClass]="{'active': getPromptsAvailable(category.name)>0}">
+                                <i class="fa fa-5x" [ngClass]="category.logo"></i>
+                            </div>
+                            <div class="text-wrap">
+                                <div class="main">
+                                    {{category.name}}
+                                </div>
+                                <div class="sub">
+                                    you have <b>{{getPromptsAvailable(category.name)}}</b>
+                                    questionnaire available
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
